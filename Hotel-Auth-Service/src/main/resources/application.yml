@@ -1,0 +1,29 @@
+server:
+  port: 8002
+
+spring:
+  application:
+    name: HOTEL-AUTH-SERVICE
+
+  datasource:
+    url: jdbc:mysql://localhost:3306/hotelapplication
+    username: root
+    password: Soumik@1998
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+  jpa:
+    database-platform: org.hibernate.dialect.MySQL8Dialect
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        format_sql: true
+        show_sql: true
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8000/eureka
+
+
+secret: 5367566B59703373367639792F423F4528482B4D6251655468576D2B4D6251655468576D5A713474375A71347437

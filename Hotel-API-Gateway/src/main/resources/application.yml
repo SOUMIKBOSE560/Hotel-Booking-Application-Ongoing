@@ -1,0 +1,39 @@
+spring:
+  application:
+    name: HOTEL-API-GATEWAY
+
+  cloud:
+    gateway:
+      routes:
+        - id: hotel-details-route
+          uri: lb://HOTEL-DETAILS-SERVICE
+          predicates:
+              - Path=/hotel-details/**
+
+        - id: hotel-location-route
+          uri: lb://HOTEL-LOCATION-SERVICE
+          predicates:
+            - Path=/hotel-location/**
+          filters:
+            - AuthFilter
+
+        - id: hotel-rating-route
+          uri: lb://HOTEL-RATING-SERVICE
+          predicates:
+            - Path=/hotel-rating/**
+
+        - id: hotel-auth-route
+          uri: lb://HOTEL-AUTH-SERVICE
+          predicates:
+            - Path=/auth/**
+
+
+server:
+  port: 8001
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8000/eureka
+
+secret: 5367566B59703373367639792F423F4528482B4D6251655468576D2B4D6251655468576D5A713474375A71347437
