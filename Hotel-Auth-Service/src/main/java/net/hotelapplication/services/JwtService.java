@@ -23,7 +23,7 @@ public class JwtService {
 
     @Value("${secret}")
     private String SECRET_KEY;
-    public static final long JWT_TOKEN_VALIDITY = 10 * 60 * 1000;
+    public static final long JWT_TOKEN_VALIDITY = 100 * 60 * 1000;
 
     //GENERATE JWT TOKEN
     public String generateToken(String username) {

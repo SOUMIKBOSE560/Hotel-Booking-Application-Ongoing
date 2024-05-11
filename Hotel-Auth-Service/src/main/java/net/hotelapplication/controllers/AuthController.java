@@ -48,7 +48,7 @@ public class AuthController {
         String bearer = token.substring(7);
         String username = jwtService.extractUsername(bearer);
         UserDetails userDetails = infoUserDetailsService.loadUserByUsername(username);
-        if(jwtService.validateToken(bearer,userDetails)){
+        if (jwtService.validateToken(bearer, userDetails)) {
             return "TOKEN IS VALID";
         }
 
@@ -56,11 +56,4 @@ public class AuthController {
     }
 
 
-    @GetMapping("/validatefortest")
-    public String validateForTest(@RequestParam String token) throws NoSuchAlgorithmException {
-        if(token != null){
-            return jwtService.extractUsername(token);
-        }
-        return null;
-    }
 }

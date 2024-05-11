@@ -21,7 +21,7 @@ public class UserInfoService {
 
     public UserInfo create(UserInfo info) throws SQLException {
         try{
-           info.setPassword(passwordEncoder.encode(info.getPassword()));
+            info.setPassword(passwordEncoder.encode(info.getPassword()));
             return userInfoRepository.save(info);
         }
         catch (Exception e){
@@ -30,7 +30,7 @@ public class UserInfoService {
     }
 
     public UserInfo getUser(String username){
-      Optional<UserInfo> userInfo = userInfoRepository.getUserByName(username);
-      return userInfo.orElse(null);
+        Optional<UserInfo> userInfo = userInfoRepository.getUserByName(username);
+        return userInfo.orElse(null);
     }
 }

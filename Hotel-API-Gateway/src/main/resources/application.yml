@@ -9,6 +9,8 @@ spring:
           uri: lb://HOTEL-DETAILS-SERVICE
           predicates:
               - Path=/hotel-details/**
+          filters:
+            - AuthFilter
 
         - id: hotel-location-route
           uri: lb://HOTEL-LOCATION-SERVICE
@@ -21,6 +23,8 @@ spring:
           uri: lb://HOTEL-RATING-SERVICE
           predicates:
             - Path=/hotel-rating/**
+          filters:
+            - AuthFilter
 
         - id: hotel-auth-route
           uri: lb://HOTEL-AUTH-SERVICE
